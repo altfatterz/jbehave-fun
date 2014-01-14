@@ -20,6 +20,7 @@ public class MathCalculationStories extends JUnitStories {
     public Configuration configuration() {
         return new MostUsefulConfiguration()
                 .useStoryReporterBuilder(new StoryReporterBuilder()
+                        .withDefaultFormats()
                         .withFormats(CONSOLE, HTML, XML)
                         .withCrossReference(new CrossReference()));
     }
