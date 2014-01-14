@@ -10,6 +10,7 @@
 
     <properties>
         <jbehave.version>3.8</jbehave.version>
+        <jbehave.site.version>3.1.1</jbehave.site.version>
     </properties>
 
     <dependencies>
@@ -18,6 +19,15 @@
             <artifactId>jbehave-core</artifactId>
             <version>${jbehave.version}</version>
         </dependency>
+
+        <!-- jbehave view generation utility -->
+        <dependency>
+            <groupId>org.jbehave.site</groupId>
+            <artifactId>jbehave-site-resources</artifactId>
+            <version>${jbehave.site.version}</version>
+            <type>zip</type>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -27,6 +37,14 @@
                 <artifactId>jbehave-maven-plugin</artifactId>
                 <version>${jbehave.version}</version>
                 <executions>
+                    <!-- -->
+                    <execution>
+                        <id>unpack-view-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>unpack-view-resources</goal>
+                        </goals>
+                    </execution>
                     <execution>
                         <id>run-stories-as-embeddables</id>
                         <phase>integration-test</phase>
@@ -34,7 +52,10 @@
                             <includes>
                                 <include>**/*Stories.java</include>
                             </includes>
+                            <!--  In this way, all stories will run and the failure will be assessed only during the view generation -->
                             <ignoreFailureInStories>true</ignoreFailureInStories>
+
+                            <!-- If any stories failed, the build will fail correspondingly -->
                             <ignoreFailureInView>false</ignoreFailureInView>
                         </configuration>
                         <goals>
