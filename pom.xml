@@ -37,7 +37,8 @@
                 <artifactId>jbehave-maven-plugin</artifactId>
                 <version>${jbehave.version}</version>
                 <executions>
-                    <!-- -->
+                    <!-- used to unzip the default resources required for the view generation which
+                    are bundled in the jbehave-core-resources.zip -->
                     <execution>
                         <id>unpack-view-resources</id>
                         <phase>process-resources</phase>
