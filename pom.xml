@@ -27,6 +27,14 @@
             <version>${jbehave.site.version}</version>
             <type>zip</type>
         </dependency>
+        <dependency>
+            <groupId>org.jbehave</groupId>
+            <artifactId>jbehave-core</artifactId>
+            <version>${jbehave.version}</version>
+            <classifier>resources</classifier>
+            <type>zip</type>
+        </dependency>
+
 
     </dependencies>
 
