@@ -58,9 +58,11 @@
                         <id>run-stories-as-embeddables</id>
                         <phase>integration-test</phase>
                         <configuration>
+                            <scope>test</scope>
                             <includes>
                                 <include>**/*Stories.java</include>
                             </includes>
+
                             <!--  In this way, all stories will run and the failure will be assessed only during the view generation -->
                             <ignoreFailureInStories>true</ignoreFailureInStories>
 
